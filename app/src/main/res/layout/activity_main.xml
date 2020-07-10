@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:hint="비밀번호 입력"
-        android:inputType="textEmailAddress"/>
+        android:inputType="textPassword"/>
 
     <Button
         android:id="@+id/loginBtn"
