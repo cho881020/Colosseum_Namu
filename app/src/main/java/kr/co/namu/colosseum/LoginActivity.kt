@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import kotlinx.android.synthetic.main.activity_login.*
+import kr.co.namu.colosseum.utils.ContextUtil
 import kr.co.namu.colosseum.utils.ServerUtil
 import org.json.JSONObject
 
@@ -55,8 +56,13 @@ class LoginActivity : BaseActivity() {
                             val loginUserToken = data.getString("token")
 
 //                            기기 내부에 저장.
+                            ContextUtil.setUserToken(mContext, loginUserToken)
 
+//                            메인화면으로 이동 (후 종료)
+                            val myIntent = Intent(mContext, MainActivity::class.java)
+                            startActivity(myIntent)
 
+                            finish()
 
                         }
                         else {
