@@ -1,6 +1,7 @@
 package kr.co.namu.colosseum.utils
 
 import android.content.Context
+import android.util.Log
 import okhttp3.*
 import org.json.JSONObject
 import java.io.IOException
@@ -53,6 +54,8 @@ class ServerUtil {
 //                    이 내용으로 Json객체 생성
 
                     val json = JSONObject(bodyStr)
+
+                    Log.d("서버 응답 내용", json.toString())
 
 //                    hanlder 변수에 응답처리 코드가 들어있다면 실행
                     handler?.onResponse(json)
