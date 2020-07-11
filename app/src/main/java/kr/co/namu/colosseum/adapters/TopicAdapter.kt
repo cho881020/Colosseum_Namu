@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ImageView
 import android.widget.TextView
 import kr.co.namu.colosseum.R
 import kr.co.namu.colosseum.datas.Topic
@@ -23,6 +24,14 @@ class TopicAdapter(val mContext:Context, val resId:Int, val mList:ArrayList<Topi
             tempRow = inf.inflate(R.layout.topic_list_item, null)
         }
         val row = tempRow!!
+
+        val topicImg = row.findViewById<ImageView>(R.id.topicImg)
+        val titleTxt = row.findViewById<TextView>(R.id.titleTxt)
+
+        val data = mList[position]
+
+        titleTxt.text = data.title
+
 
         return row
     }
