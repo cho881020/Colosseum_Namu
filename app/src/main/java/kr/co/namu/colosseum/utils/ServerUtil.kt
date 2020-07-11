@@ -19,6 +19,60 @@ class ServerUtil {
         //        서버 접근 주소 담는 변수
         private val BASE_URL = "http://15.165.177.142"
 
+
+//        토론 상세 정보 가져오기 => 몇번 토픽인지?
+
+        fun getRequestTopicDetail(context: Context, topicId: Int, handler: JsonResponseHandler?) {
+
+            //            서버 통신 담당 변수
+            val client = OkHttpClient()
+
+//            주소를 설정하는 기능
+            val myUrl = "${BASE_URL}/topic/${topicId}".toHttpUrlOrNull()!!.newBuilder()
+
+//            GET 방식 요청 : 주소에 우리가 보내줄 정보들을 이어 적어야함. (GET/DELETE  Vs. POST/PUT/PATCH 는 사용방법이 다르다)
+//            myUrl.addEncodedQueryParameter("need_replies", false.toString())
+
+//            모든 데이터가 주소에 첨부되면 주소 작성 마무리 => String으로 변환
+            val urlStr = myUrl.build().toString()
+
+//            최종 요청 정보 담긴 Request 만들기
+            val request = Request.Builder()
+                .url(urlStr)
+                .get()
+//              헤더에 데이터 첨부는 리퀘스트를 만들때 해야함
+//              헤더 데이터 : (ContextUtil에 저장해둔) 토큰값 첨부
+                .header("X-Http-Token", ContextUtil.getUserToken(context))
+                .build()
+
+//            실제 서버에 요청 날리기
+            client.newCall(request).enqueue(object : Callback {
+                override fun onFailure(call: Call, e: IOException) {
+
+                }
+
+                override fun onResponse(call: Call, response: Response) {
+//                    실제 서버 응답이 돌아왔을때 실행됨.
+//                    응답 내용을 저장
+                    val bodyStr = response.body?.string()
+
+//                    이 내용으로 Json객체 생성
+
+                    val json = JSONObject(bodyStr)
+
+                    Log.d("서버 응답 내용", json.toString())
+
+//                    hanlder 변수에 응답처리 코드가 들어있다면 실행
+                    handler?.onResponse(json)
+
+                }
+
+            })
+
+
+        }
+
+
 //        진행중인 토론 주제 목록 가져오기
 
         fun getRequestMainInfo(context: Context, handler: JsonResponseHandler?) {
