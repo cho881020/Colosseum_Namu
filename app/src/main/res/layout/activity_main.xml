@@ -20,4 +20,10 @@
         android:text="로그인한 사용자 닉네임"
         android:textSize="25sp"/>
 
+    <TextView
+        android:id="@+id/userEmailTxt"
+        android:text="로그인 사용자 이메일"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
+
 </LinearLayout>
