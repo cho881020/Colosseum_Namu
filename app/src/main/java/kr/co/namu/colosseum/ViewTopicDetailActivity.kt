@@ -51,6 +51,14 @@ class ViewTopicDetailActivity : BaseActivity() {
                 runOnUiThread {
                     titleTxt.text = mTopicData.title
                     Glide.with(mContext).load(mTopicData.imageUrl).into(topicImg)
+
+//                    선택 진영에 대한 정보도 뿌려주자
+                    firstSideTitleTxt.text = mTopicData.sideList[0].title
+                    secondSideTitleTxt.text = mTopicData.sideList[1].title
+
+                    firstSideVoteCountTxt.text = "${mTopicData.sideList[0].voteCount}표"
+                    secondSideVoteCountTxt.text = "${mTopicData.sideList[1].voteCount}표"
+
                 }
 
             }
