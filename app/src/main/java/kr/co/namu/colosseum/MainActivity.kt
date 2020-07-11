@@ -20,7 +20,10 @@ class MainActivity : BaseActivity() {
     }
 
     override fun setValues() {
-        getUserInfoFromServer()
+//        getUserInfoFromServer()
+
+
+
     }
 
 //    임시로 하는 작업. => 서버에서 내 정보를 받아와서 닉네임 뿌려주기
@@ -38,8 +41,8 @@ class MainActivity : BaseActivity() {
 
                     val loginUser = User.getUserFromJson(user)
 
-                    userNickTxt.text = loginUser.nickName
-                    userEmailTxt.text = loginUser.email
+//                    userNickTxt.text = loginUser.nickName
+//                    userEmailTxt.text = loginUser.email
 
                 }
 
