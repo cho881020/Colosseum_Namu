@@ -34,6 +34,24 @@ class ViewTopicDetailActivity : BaseActivity() {
 
     override fun setupEvents() {
 
+        replyListView.setOnItemClickListener { adapterView, view, position, l ->
+
+//            클릭된 의견을 추출
+            val clickedReply = mReplyList[position]
+
+//            해당 의견 조회 화면으로 이동
+            val myIntent = Intent(mContext, ViewReplyDetailActivity::class.java)
+
+//            의견 조회시 필요한 데이터 첨부
+            myIntent.putExtra("writerNick", clickedReply.user.nickName)
+            myIntent.putExtra("side", clickedReply.side.title)
+            myIntent.putExtra("content", clickedReply.content)
+            myIntent.putExtra("replyId", clickedReply.id)
+
+            startActivity(myIntent)
+
+        }
+
         replyBtn.setOnClickListener {
 
             if (mTopicData.mySide == null) {
