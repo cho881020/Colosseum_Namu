@@ -42,6 +42,8 @@ class ViewTopicDetailActivity : BaseActivity() {
             }
 
             val myIntent = Intent(mContext, EditReplyActivity::class.java)
+            myIntent.putExtra("topicId", mTopicId)
+            myIntent.putExtra("mySideTitle", mTopicData.mySide?.title)
             startActivity(myIntent)
 
         }
