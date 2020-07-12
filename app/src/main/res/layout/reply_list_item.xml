@@ -21,6 +21,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="작성자 이름"
+                android:textColor="#000000"
                 android:textSize="18sp" />
 
             <TextView
@@ -32,17 +33,12 @@
 
         </LinearLayout>
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="5dp"
-            android:background="#DFDFDF" />
 
         <TextView
             android:id="@+id/contentTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
+            android:textSize="13sp"
             android:text="내용 나올 자리"
             android:layout_marginTop="5dp"
             />

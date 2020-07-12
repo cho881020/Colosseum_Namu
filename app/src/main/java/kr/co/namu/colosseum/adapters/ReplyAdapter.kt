@@ -34,7 +34,7 @@ class ReplyAdapter(val mContext:Context, val resId:Int, val mList:ArrayList<Repl
         val data = mList[position]
 
         writerNameTxt.text = data.user.nickName
-        sideTxt.text = data.side.title
+        sideTxt.text = "(${data.side.title})"
         contentTxt.text = data.content
 
         return row
