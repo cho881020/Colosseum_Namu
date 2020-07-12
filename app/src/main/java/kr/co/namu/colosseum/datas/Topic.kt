@@ -10,6 +10,8 @@ class Topic {
 
     val sideList = ArrayList<TopicSide>()
 
+    var mySide : TopicSide? = null
+
     companion object {
 
         fun getTopicFromJson(json: JSONObject) : Topic {
@@ -31,6 +33,13 @@ class Topic {
 
                 topic.sideList.add(topicSide)
 
+            }
+
+//            내 선택진영 정보가 있다면 등록
+            if (!json.isNull("my_side")) {
+
+                val mySideJson = json.getJSONObject("my_side")
+                topic.mySide = TopicSide.getTopicSideFromJson(mySideJson)
             }
 
             return topic
