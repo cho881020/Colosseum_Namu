@@ -3,6 +3,7 @@ package kr.co.namu.colosseum
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlinx.android.synthetic.main.activity_view_reply_detail.*
+import kr.co.namu.colosseum.adapters.ReplyAdapter
 import kr.co.namu.colosseum.datas.Reply
 import kr.co.namu.colosseum.utils.ServerUtil
 import org.json.JSONObject
@@ -14,6 +15,8 @@ class ViewReplyDetailActivity : BaseActivity() {
 
 //    답글 목록을 저장할 배열
     val mReReplyList = ArrayList<Reply>()
+
+    lateinit var mAdapter : ReplyAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +40,9 @@ class ViewReplyDetailActivity : BaseActivity() {
         sideTxt.text = "(${intent.getStringExtra("side")})"
         contentTxt.text = intent.getStringExtra("content")
 
+//        어댑터 생성 / 리스트뷰 연결
+        mAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReReplyList)
+        reReplyListView.adapter = mAdapter
 
     }
 
@@ -68,6 +74,11 @@ class ViewReplyDetailActivity : BaseActivity() {
 
                     mReReplyList.add(reply)
 
+                }
+
+                runOnUiThread {
+//                     리스트뷰 내용 새로고침
+                    mAdapter.notifyDataSetChanged()
                 }
 
             }
