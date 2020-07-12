@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="10dp"
+    tools:context=".EditReplyActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="선택한 진영" />
+
+    <TextView
+        android:id="@+id/mySideTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="17sp"
+        android:text="진영 나올 자리"
+        android:layout_marginTop="5dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="의견 작성하기"
+        android:layout_marginTop="5dp" />
+
+    <EditText
+        android:id="@+id/contentEdt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="의견을 적어주세요." />
+
+    <Button
+        android:id="@+id/postReplyBtn"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="의견 등록 하기" />
+
+</LinearLayout>
