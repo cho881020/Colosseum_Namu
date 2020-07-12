@@ -27,6 +27,16 @@ class ReplyAdapter(val mContext:Context, val resId:Int, val mList:ArrayList<Repl
         }
         val row = tempRow!!
 
+        val writerNameTxt = row.findViewById<TextView>(R.id.writerNameTxt)
+        val sideTxt = row.findViewById<TextView>(R.id.sideTxt)
+        val contentTxt = row.findViewById<TextView>(R.id.contentTxt)
+
+        val data = mList[position]
+
+        writerNameTxt.text = data.user.nickName
+        sideTxt.text = data.side.title
+        contentTxt.text = data.content
+
         return row
     }
 

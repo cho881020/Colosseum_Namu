@@ -17,12 +17,14 @@
             android:gravity="center_vertical">
 
             <TextView
+                android:id="@+id/writerNameTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="작성자 이름"
                 android:textSize="18sp" />
 
             <TextView
+                android:id="@+id/sideTxt"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="(선택한 진영)"
@@ -37,10 +39,11 @@
             android:background="#DFDFDF" />
 
         <TextView
+            android:id="@+id/contentTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="18sp"
-            android:text="제목 나올 자리"
+            android:text="내용 나올 자리"
             android:layout_marginTop="5dp"
             />
 
