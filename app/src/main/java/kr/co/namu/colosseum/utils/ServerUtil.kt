@@ -31,7 +31,7 @@ class ServerUtil {
             val myUrl = "${BASE_URL}/topic/${topicId}".toHttpUrlOrNull()!!.newBuilder()
 
 //            GET 방식 요청 : 주소에 우리가 보내줄 정보들을 이어 적어야함. (GET/DELETE  Vs. POST/PUT/PATCH 는 사용방법이 다르다)
-//            myUrl.addEncodedQueryParameter("need_replies", false.toString())
+            myUrl.addEncodedQueryParameter("order_type", "NEW")
 
 //            모든 데이터가 주소에 첨부되면 주소 작성 마무리 => String으로 변환
             val urlStr = myUrl.build().toString()
