@@ -17,6 +17,8 @@
             android:id="@+id/writerNickNameTxt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="20sp"
+            android:textColor="#000000"
             android:text="작성자 닉네임" />
 
         <TextView

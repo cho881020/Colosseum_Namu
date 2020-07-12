@@ -1,5 +1,6 @@
 package kr.co.namu.colosseum
 
+import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 
 abstract class BaseActivity : AppCompatActivity() {
@@ -10,5 +11,12 @@ abstract class BaseActivity : AppCompatActivity() {
 //    다른 화면들이 이 두개의 함수를 반드시 구현해야 하도록 강제.
     abstract fun setupEvents()
     abstract fun setValues()
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+//        제목 개인별로 설정
+        title = "콜로세움"
+    }
 
 }
