@@ -92,9 +92,13 @@ class ViewTopicDetailActivity : BaseActivity() {
         mReplyAdapter = ReplyAdapter(mContext, R.layout.reply_list_item, mReplyList)
         replyListView.adapter = mReplyAdapter
 
-//        서버에서 해당 토픽의 진행상황 / 상세 정보 확인
+    }
+
+    override fun onResume() {
+        super.onResume()
         getTopicDetailFromServer()
     }
+
 
     fun getTopicDetailFromServer() {
 
@@ -108,8 +112,11 @@ class ViewTopicDetailActivity : BaseActivity() {
 //                멤버변수 mTopicData에 서버에서 내려준 내용을 저장.
                 mTopicData = Topic.getTopicFromJson(topicJson)
 
+
 //                의견 목록을 받아서 리스트뷰에 반영
                 val replies = topicJson.getJSONArray("replies")
+
+                mReplyList.clear()
 
                 for (i in 0..replies.length()-1) {
 //                    의견 하나하나를 Replies 형태로 변환.
